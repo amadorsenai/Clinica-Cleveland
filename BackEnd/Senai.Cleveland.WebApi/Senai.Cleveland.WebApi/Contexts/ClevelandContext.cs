@@ -22,7 +22,7 @@ namespace Senai.Cleveland.WebApi.Domains
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=Cleveland;User Id=sa; Pwd=132");
+                optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=Cleveland;User Id=sa;Pwd=132");
             }
         }
 
@@ -37,6 +37,13 @@ namespace Senai.Cleveland.WebApi.Domains
                     .IsUnique();
 
                 entity.Property(e => e.Crm).HasColumnName("crm");
+
+                entity.Property(e => e.Estado)
+                    .IsRequired()
+                    .HasColumnName("estado")
+                    .HasMaxLength(99)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('Ativo')");
 
                 entity.Property(e => e.Nascimento)
                     .HasColumnName("nascimento")

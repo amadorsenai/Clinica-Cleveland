@@ -9,5 +9,6 @@ namespace Senai.Cleveland.WebApi.Domains
         public string Nome { get; set; }
         public DateTime Nascimento { get; set; }
         public int Crm { get; set; }
+        public string Estado { get; set; }
     }
 }
